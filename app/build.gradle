@@ -1,0 +1,86 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.getkeepsafe.dexcount'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
+
+    defaultConfig {
+        applicationId 'net.rafaeltoledo.stak'
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName '0.0.1'
+
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+    }
+    buildTypes {
+        /*debug {
+            minifyEnabled true
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }*/
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+final supportLibVersion = '23.3.0'
+final retrofitVersion = '2.0.2'
+final okHttpVersion = '3.2.0'
+final espressoVersion = '2.2.2'
+final testRunnerRulesVersion = '0.5'
+
+dependencies {
+    compile "com.android.support:appcompat-v7:$supportLibVersion"
+    compile "com.android.support:recyclerview-v7:$supportLibVersion"
+    compile "com.android.support:design:$supportLibVersion"
+
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    compile 'com.google.code.gson:gson:2.6.2'
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "org.jetbrains.anko:anko-common:$ankoVersion"
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.makeramen:roundedimageview:2.2.1'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.robolectric:robolectric:3.1-rc1'
+
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$espressoVersion"
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$espressoVersion") {
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-v4'
+        exclude module: 'design'
+        exclude module: 'recyclerview-v7'
+    }
+    androidTestCompile "com.android.support:support-annotations:$supportLibVersion"
+    androidTestCompile "com.android.support.test:runner:$testRunnerRulesVersion"
+    androidTestCompile "com.android.support.test:rules:$testRunnerRulesVersion"
+
+    androidTestCompile 'br.com.concretesolutions:requestmatcher:1.0.0-beta1'
+    androidTestCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
+}
+
+buildscript {
+    ext.kotlinVersion = '1.0.1-2'
+    ext.ankoVersion = '0.8.3'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlinVersion"
+    }
+}
+repositories {
+    mavenCentral()
+}
+
