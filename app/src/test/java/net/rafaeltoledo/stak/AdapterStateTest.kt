@@ -2,11 +2,11 @@ package net.rafaeltoledo.stak
 
 import net.rafaeltoledo.stak.data.User
 import net.rafaeltoledo.stak.ui.adapter.UserAdapter
-import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricGradleTestRunner
 import org.robolectric.annotation.Config
+import kotlin.test.assertEquals
 
 @RunWith(RobolectricGradleTestRunner::class)
 @Config(sdk = intArrayOf(23), constants = BuildConfig::class)
@@ -26,7 +26,7 @@ class AdapterStateTest {
         var newAdapter = UserAdapter({ }, { })
         newAdapter.onRestoreInstanceState(parcelable!!)
 
-        Assert.assertEquals(adapter.itemCount, newAdapter.itemCount)
-        Assert.assertEquals(adapter.items[0].displayName, newAdapter.items[0].displayName)
+        assertEquals(adapter.itemCount, newAdapter.itemCount)
+        assertEquals(adapter.items[0].displayName, newAdapter.items[0].displayName)
     }
 }

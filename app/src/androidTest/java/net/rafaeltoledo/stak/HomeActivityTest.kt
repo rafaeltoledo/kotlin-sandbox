@@ -10,7 +10,7 @@ import android.support.test.espresso.intent.Intents
 import android.support.test.espresso.intent.Intents.intended
 import android.support.test.espresso.intent.matcher.IntentMatchers.hasAction
 import android.support.test.espresso.intent.matcher.IntentMatchers.hasData
-import android.support.test.espresso.intent.matcher.UriMatchers
+import android.support.test.espresso.intent.matcher.UriMatchers.hasHost
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
@@ -58,7 +58,7 @@ class HomeActivityTest {
                 .perform(actionOnItemAtPosition<UserViewHolder>(2, click()));
 
         intended(allOf(hasAction(Intent.ACTION_VIEW),
-                hasData(UriMatchers.hasHost(equalTo("stackoverflow.com")))
+                hasData(hasHost(equalTo("stackoverflow.com")))
         ));
         Intents.release();
     }
