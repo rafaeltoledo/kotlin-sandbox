@@ -9,10 +9,7 @@ import net.rafaeltoledo.stak.R
 import net.rafaeltoledo.stak.data.User
 import net.rafaeltoledo.stak.data.api.ApiCaller
 import net.rafaeltoledo.stak.ui.adapter.UserAdapter
-import org.jetbrains.anko.async
-import org.jetbrains.anko.browse
-import org.jetbrains.anko.ctx
-import org.jetbrains.anko.uiThread
+import org.jetbrains.anko.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -42,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun load(page: Int) {
-        async() {
+        doAsync() {
             val response = ApiCaller.api.getUsers(page).execute()
             uiThread {
                 if (response.isSuccessful) {

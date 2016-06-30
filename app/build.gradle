@@ -4,13 +4,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.3'
+    compileSdkVersion 24
+    buildToolsVersion '24.0.0'
 
     defaultConfig {
         applicationId 'net.rafaeltoledo.stak'
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName '0.0.1'
 
@@ -29,9 +29,9 @@ android {
     }
 }
 
-final supportLibVersion = '23.3.0'
-final retrofitVersion = '2.0.2'
-final okHttpVersion = '3.2.0'
+final supportLibVersion = '24.0.0'
+final retrofitVersion = '2.1.0'
+final okHttpVersion = '3.3.1'
 final espressoVersion = '2.2.2'
 final testRunnerRulesVersion = '0.5'
 
@@ -43,7 +43,7 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
-    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.google.code.gson:gson:2.7'
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     compile "org.jetbrains.anko:anko-common:$ankoVersion"
@@ -51,7 +51,7 @@ dependencies {
     compile 'com.makeramen:roundedimageview:2.2.1'
 
     testCompile 'junit:junit:4.12'
-    testCompile 'org.robolectric:robolectric:3.1-rc1'
+    testCompile 'org.robolectric:robolectric:3.1'
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
 
     androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
@@ -71,10 +71,10 @@ dependencies {
 }
 
 buildscript {
-    ext.kotlinVersion = '1.0.1-2'
-    ext.ankoVersion = '0.8.3'
+    ext.kotlinVersion = '1.0.3'
+    ext.ankoVersion = '0.9'
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
@@ -82,6 +82,6 @@ buildscript {
     }
 }
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
