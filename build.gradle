@@ -1,10 +1,13 @@
 buildscript {
+    ext.kotlinVersion = '1.0.6'
     repositories {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0-alpha4'
-        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.5.4'
+        classpath 'com.android.tools.build:gradle:2.3.0-beta3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlinVersion"
+        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.6.2'
     }
 }
 

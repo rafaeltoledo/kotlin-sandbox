@@ -4,15 +4,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion '24.0.0'
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         applicationId 'net.rafaeltoledo.stak'
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 25
         versionCode 1
-        versionName '0.0.1'
+        versionName '0.0.2'
 
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
@@ -29,11 +29,12 @@ android {
     }
 }
 
-final supportLibVersion = '24.0.0'
+final supportLibVersion = '25.1.1'
 final retrofitVersion = '2.1.0'
-final okHttpVersion = '3.3.1'
+final okHttpVersion = '3.6.0'
 final espressoVersion = '2.2.2'
 final testRunnerRulesVersion = '0.5'
+final ankoVersion = '0.9'
 
 dependencies {
     compile "com.android.support:appcompat-v7:$supportLibVersion"
@@ -43,15 +44,15 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
-    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.google.code.gson:gson:2.8.0'
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     compile "org.jetbrains.anko:anko-common:$ankoVersion"
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.makeramen:roundedimageview:2.2.1'
+    compile 'com.makeramen:roundedimageview:2.3.0'
 
     testCompile 'junit:junit:4.12'
-    testCompile 'org.robolectric:robolectric:3.1'
+    testCompile 'org.robolectric:robolectric:3.2.2'
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
 
     androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
@@ -69,19 +70,3 @@ dependencies {
     androidTestCompile 'br.com.concretesolutions:requestmatcher:1.0.0-alpha2'
     androidTestCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
 }
-
-buildscript {
-    ext.kotlinVersion = '1.0.3'
-    ext.ankoVersion = '0.9'
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlinVersion"
-    }
-}
-repositories {
-    jcenter()
-}
-
