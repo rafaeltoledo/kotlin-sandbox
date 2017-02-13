@@ -67,6 +67,6 @@ dependencies {
     androidTestCompile "com.android.support.test:runner:$testRunnerRulesVersion"
     androidTestCompile "com.android.support.test:rules:$testRunnerRulesVersion"
 
-    androidTestCompile 'br.com.concretesolutions:requestmatcher:1.0.0-alpha2'
+    androidTestCompile 'br.com.concretesolutions:requestmatcher:2.1.0'
     androidTestCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
 }

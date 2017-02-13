@@ -1,7 +1,6 @@
 package net.rafaeltoledo.stak
 
 import android.content.Intent
-import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
@@ -32,7 +31,7 @@ class HomeActivityTest {
     val activityRule = ActivityTestRule<HomeActivity>(HomeActivity::class.java, false, false)
 
     @Rule @JvmField
-    val serverRule = InstrumentedTestRequestMatcherRule(InstrumentationRegistry.getContext())
+    val serverRule = InstrumentedTestRequestMatcherRule()
 
     @Before
     fun setupMockServer() {
@@ -42,24 +41,25 @@ class HomeActivityTest {
     @Test
     fun shouldLoadUsersAndTriggerIntent() {
         serverRule
-                .enqueueGET(200, "users.json")
-                .assertPathIs("/2.2/users")
-                .assertHasQuery("order", "desc")
-                .assertHasQuery("sort", "reputation")
-                .assertHasQuery("site", "stackoverflow")
+                .addFixture(200, "users.json")
+                .ifRequestMatches()
+                .pathIs("/2.2/users")
+                .queriesContain("order", "desc")
+                .queriesContain("sort", "reputation")
+                .queriesContain("site", "stackoverflow")
 
-        Intents.init();
+        Intents.init()
         activityRule.launchActivity(Intent(Intent.ACTION_MAIN))
 
         onView(withId(R.id.recyclerView))
                 .perform(scrollToPosition<UserViewHolder>(3))
 
         onView(withId(R.id.recyclerView))
-                .perform(actionOnItemAtPosition<UserViewHolder>(2, click()));
+                .perform(actionOnItemAtPosition<UserViewHolder>(2, click()))
 
         intended(allOf(hasAction(Intent.ACTION_VIEW),
                 hasData(hasHost(equalTo("stackoverflow.com")))
-        ));
-        Intents.release();
+        ))
+        Intents.release()
     }
 }
