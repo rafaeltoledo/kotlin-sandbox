@@ -29,12 +29,16 @@ android {
     }
 }
 
-final supportLibVersion = '25.1.1'
-final retrofitVersion = '2.1.0'
+configurations {
+    ktlint
+}
+
+final supportLibVersion = '25.3.0'
+final retrofitVersion = '2.2.0'
 final okHttpVersion = '3.6.0'
 final espressoVersion = '2.2.2'
 final testRunnerRulesVersion = '0.5'
-final ankoVersion = '0.9'
+final ankoVersion = '0.9.1a'
 
 dependencies {
     compile "com.android.support:appcompat-v7:$supportLibVersion"
@@ -69,4 +73,21 @@ dependencies {
 
     androidTestCompile 'br.com.concretesolutions:requestmatcher:2.1.0'
     androidTestCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
+
+    ktlint 'com.github.shyiko:ktlint:0.6.1'
 }
+
+task ktlint(type: JavaExec) {
+    main = 'com.github.shyiko.ktlint.Main'
+    classpath = configurations.ktlint
+    args 'src/**/*.kt'
+}
+
+task ktlintFormat(type: JavaExec) {
+    main = 'com.github.shyiko.ktlint.Main'
+    classpath = configurations.ktlint
+    args '-F', 'src/**/*.kt'
+}
+
+check.dependsOn(['ktlint', 'ktlintFormat'])
+

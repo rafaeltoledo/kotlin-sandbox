@@ -9,7 +9,10 @@ import net.rafaeltoledo.stak.R
 import net.rafaeltoledo.stak.data.User
 import net.rafaeltoledo.stak.data.api.ApiCaller
 import net.rafaeltoledo.stak.ui.adapter.UserAdapter
-import org.jetbrains.anko.*
+import org.jetbrains.anko.browse
+import org.jetbrains.anko.ctx
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 class HomeActivity : AppCompatActivity() {
 
