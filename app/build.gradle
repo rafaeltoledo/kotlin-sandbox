@@ -74,7 +74,7 @@ dependencies {
     androidTestCompile 'br.com.concretesolutions:requestmatcher:2.2.0'
     androidTestCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
 
-    ktlint 'com.github.shyiko:ktlint:0.8.1'
+    ktlint 'com.github.shyiko:ktlint:0.8.3'
 }
 
 task ktlint(type: JavaExec) {
