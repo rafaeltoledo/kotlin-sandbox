@@ -42,11 +42,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun load(page: Int) {
-        doAsync() {
+        doAsync {
             val response = ApiCaller.api.getUsers(page).execute()
             uiThread {
                 if (response.isSuccessful) {
-                    adapter.addAll(response.body().items, response.body().hasMore)
+                    adapter.addAll(response.body()!!.items, response.body()!!.hasMore)
                 }
             }
         }
