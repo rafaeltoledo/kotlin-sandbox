@@ -16,8 +16,8 @@ import org.jetbrains.anko.uiThread
 
 class HomeActivity : AppCompatActivity() {
 
-    lateinit var layoutManager: RecyclerView.LayoutManager
-    lateinit var adapter: UserAdapter
+    private lateinit var layoutManager: RecyclerView.LayoutManager
+    private lateinit var adapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

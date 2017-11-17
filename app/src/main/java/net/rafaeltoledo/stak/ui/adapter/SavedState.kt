@@ -17,6 +17,7 @@ class SavedState(val page: Int, val items: Array<out Parcelable>) : Parcelable {
 
     companion object {
 
+        @JvmField
         val CREATOR: Parcelable.Creator<SavedState> = object : Parcelable.Creator<SavedState> {
 
             override fun createFromParcel(parcel: Parcel) = SavedState(parcel)

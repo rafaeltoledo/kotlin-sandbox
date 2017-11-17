@@ -12,7 +12,7 @@ object ApiCaller {
 
     var api: StakApi = build()
 
-    @VisibleForTesting
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     fun build(url: String = "https://api.stackexchange.com") = Retrofit.Builder()
             .baseUrl(url)
             .client(OkHttpClient.Builder()

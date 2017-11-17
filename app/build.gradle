@@ -4,15 +4,15 @@ apply plugin: 'org.jetbrains.kotlin.android'
 apply plugin: 'org.jetbrains.kotlin.android.extensions'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.1'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.1'
 
     defaultConfig {
         applicationId 'net.rafaeltoledo.stak'
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
-        versionName '0.0.3'
+        versionName '0.0.4'
 
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
@@ -33,48 +33,48 @@ configurations {
     ktlint
 }
 
-final supportLibVersion = '26.0.2'
+final supportLibVersion = '27.0.1'
 final retrofitVersion = '2.3.0'
 final okHttpVersion = '3.9.0'
 final espressoVersion = '3.0.1'
 final testRunnerRulesVersion = '1.0.1'
-final ankoVersion = '0.10.1'
+final ankoVersion = '0.10.2'
 
 dependencies {
-    compile "com.android.support:appcompat-v7:$supportLibVersion"
-    compile "com.android.support:recyclerview-v7:$supportLibVersion"
-    compile "com.android.support:design:$supportLibVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:recyclerview-v7:$supportLibVersion"
+    implementation "com.android.support:design:$supportLibVersion"
 
-    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
-    compile 'com.google.code.gson:gson:2.8.1'
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    implementation 'com.google.code.gson:gson:2.8.2'
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    compile "org.jetbrains.anko:anko-common:$ankoVersion"
-    compile 'com.github.bumptech.glide:glide:4.1.1'
-    compile 'com.makeramen:roundedimageview:2.3.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "org.jetbrains.anko:anko-common:$ankoVersion"
+    implementation 'com.github.bumptech.glide:glide:4.3.1'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.robolectric:robolectric:3.4.2'
-    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.robolectric:robolectric:3.5.1'
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
 
-    androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
-    androidTestCompile "com.android.support.test.espresso:espresso-intents:$espressoVersion"
-    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$espressoVersion") {
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$espressoVersion") {
         exclude module: 'appcompat-v7'
         exclude module: 'support-v4'
         exclude module: 'design'
         exclude module: 'recyclerview-v7'
     }
-    androidTestCompile "com.android.support:support-annotations:$supportLibVersion"
-    androidTestCompile "com.android.support.test:runner:$testRunnerRulesVersion"
-    androidTestCompile "com.android.support.test:rules:$testRunnerRulesVersion"
+    androidTestImplementation "com.android.support:support-annotations:$supportLibVersion"
+    androidTestImplementation "com.android.support.test:runner:$testRunnerRulesVersion"
+    androidTestImplementation "com.android.support.test:rules:$testRunnerRulesVersion"
 
-    androidTestCompile 'br.com.concretesolutions:requestmatcher:2.2.0'
-    androidTestCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
+    androidTestImplementation 'br.com.concretesolutions:requestmatcher:2.2.0'
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
 
-    ktlint 'com.github.shyiko:ktlint:0.9.2'
+    ktlint 'com.github.shyiko:ktlint:0.12.1'
 }
 
 task ktlint(type: JavaExec) {

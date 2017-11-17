@@ -18,6 +18,8 @@ data class User(val displayName: String, val profileImage: String, val location:
     override fun describeContents(): Int = 0
 
     companion object {
+
+        @JvmStatic
         val CREATOR: Parcelable.Creator<User> = object : Parcelable.Creator<User> {
             override fun createFromParcel(parcel: Parcel) = User(parcel)
 

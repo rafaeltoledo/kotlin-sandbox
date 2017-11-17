@@ -9,12 +9,12 @@ import net.rafaeltoledo.stak.ui.LoadingViewHolder
 import net.rafaeltoledo.stak.ui.UserViewHolder
 import net.rafaeltoledo.stak.util.inflate
 
-class UserAdapter(val listener: (User) -> Unit, val loadMore: (Int) -> Unit) :
+class UserAdapter(private val listener: (User) -> Unit, private val loadMore: (Int) -> Unit) :
         RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var page = 0
+    private var page = 0
     var items: MutableList<User> = arrayListOf()
-    var dontNotify = false
+    private var dontNotify = false
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is UserViewHolder) {
