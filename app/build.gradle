@@ -5,14 +5,13 @@ apply plugin: 'org.jetbrains.kotlin.android.extensions'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.1'
 
     defaultConfig {
         applicationId 'net.rafaeltoledo.stak'
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 1
-        versionName '0.0.4'
+        versionCode 5
+        versionName '0.0.5'
 
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
@@ -33,12 +32,12 @@ configurations {
     ktlint
 }
 
-final supportLibVersion = '27.0.1'
+final supportLibVersion = '27.0.2'
 final retrofitVersion = '2.3.0'
-final okHttpVersion = '3.9.0'
+final okHttpVersion = '3.9.1'
 final espressoVersion = '3.0.1'
 final testRunnerRulesVersion = '1.0.1'
-final ankoVersion = '0.10.2'
+final ankoVersion = '0.10.3'
 
 dependencies {
     implementation "com.android.support:appcompat-v7:$supportLibVersion"
@@ -52,7 +51,7 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     implementation "org.jetbrains.anko:anko-common:$ankoVersion"
-    implementation 'com.github.bumptech.glide:glide:4.3.1'
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
     testImplementation 'junit:junit:4.12'
@@ -74,7 +73,7 @@ dependencies {
     androidTestImplementation 'br.com.concretesolutions:requestmatcher:2.2.0'
     androidTestImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
 
-    ktlint 'com.github.shyiko:ktlint:0.12.1'
+    ktlint 'com.github.shyiko:ktlint:0.14.0'
 }
 
 task ktlint(type: JavaExec) {
